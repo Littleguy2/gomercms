@@ -1,0 +1,59 @@
+---
+layout: base.njk
+title: "Ministries"
+description: "Find your place at Gomer Faith Ministries — Men's, Women's, Children's, Youth, Discipleship, Evangelism, and Prayer & Bible Study ministries in Leyton, London."
+nav: ministries
+permalink: /ministries/
+---
+<section class="hero" style="padding-bottom:60px;">
+  <div class="container">
+    <span class="eyebrow">There's a place for you</span>
+    <h1>Find your people.</h1>
+    <p class="lead" style="max-width:60ch;">Whether you're new to faith, raising a family, mentoring a teenager, or looking for people to pray with, Gomer has a ministry built for exactly where you are.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="grid grid-3 reveal">
+      {% for m in collections.ministries %}
+      <div class="card">
+        <div class="card-art"><img src="{{ m.data.image }}" alt="{{ m.data.title }}" loading="lazy"></div>
+        <div class="card-body">
+          <span class="card-tag">{{ m.data.tag }}</span>
+          <h3>{{ m.data.title }}</h3>
+          <p>{{ m.templateContent | safe }}</p>
+          <a class="btn btn-ghost" href="/contact/">Join this ministry →</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--dim">
+  <div class="container two-col">
+    <div class="reveal">
+      <span class="eyebrow">In the community</span>
+      <h2>{{ homepage.outreach_headline }}</h2>
+      <p class="lead">{{ homepage.outreach_text }}</p>
+      <a class="btn btn-primary" href="/contact/">Get Involved</a>
+    </div>
+    <div class="hero-art reveal" style="aspect-ratio:4/3;">
+      <img class="hero-photo" src="{{ homepage.outreach_image }}" alt="Gomer community outreach">
+      <div class="hero-art-caption">Community outreach, Leyton</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="next-step reveal">
+      <div>
+        <h2>Not sure where to start?</h2>
+        <p>Tell us a bit about you and we'll point you to the right ministry.</p>
+      </div>
+      <a class="btn btn-primary" href="/contact/">Get in Touch</a>
+    </div>
+  </div>
+</section>

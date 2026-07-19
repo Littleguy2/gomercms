@@ -1,0 +1,77 @@
+---
+layout: base.njk
+title: "About Us"
+description: "Learn the story of Gomer Faith Ministries, meet Pastor Michael and Elder Pauline Lewis, and read our vision, mission, and safeguarding commitments."
+nav: about
+permalink: /about/
+---
+<section class="hero" style="padding-bottom:60px;">
+  <div class="container">
+    <span class="eyebrow">Our story</span>
+    <h1>{{ about.hero_headline }}</h1>
+    <p class="lead" style="max-width:60ch;">{{ about.hero_text }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container two-col">
+    <div class="reveal">
+      <span class="eyebrow">Vision</span>
+      <h2>{{ about.vision_headline }}</h2>
+      <p class="lead">{{ about.vision_text }}</p>
+    </div>
+    <div class="stack reveal">
+      {% for point in homepage.mission_points %}
+      <div class="info-item"><span class="label">{{ point.label }}</span>{{ point.text }}</div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--dim">
+  <div class="container">
+    <div class="center reveal" style="max-width:640px;margin:0 auto 48px;">
+      <span class="eyebrow">Leadership</span>
+      <h2>Meet our leaders</h2>
+    </div>
+    <div class="grid grid-2 reveal">
+      {% for leader in collections.leaders %}
+      <div class="card">
+        <div class="card-art"><img src="{{ leader.data.image }}" alt="{{ leader.data.name }}" loading="lazy"></div>
+        <div class="card-body">
+          <h3>{{ leader.data.name }}</h3>
+          <p>{{ leader.templateContent | safe }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="safeguarding">
+  <div class="container two-col">
+    <div class="reveal">
+      <span class="eyebrow">Safeguarding</span>
+      <h2>{{ about.safeguarding_headline }}</h2>
+      <p class="lead">{{ about.safeguarding_text }}</p>
+      <a class="btn btn-ghost" href="/contact/">Contact our safeguarding lead →</a>
+    </div>
+    <div class="stack reveal">
+      <div class="info-item"><span class="label">Trained leaders</span>All children's and youth workers are briefed on safeguarding practice.</div>
+      <div class="info-item"><span class="label">Clear reporting</span>Concerns can be raised directly with our safeguarding lead at any time.</div>
+      <div class="info-item"><span class="label">Ongoing review</span>Our safeguarding approach is reviewed regularly against current guidance.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dim">
+  <div class="container">
+    <div class="next-step reveal">
+      <div>
+        <h2>Want to know more?</h2>
+        <p>We'd love to tell you more about where Gomer came from and where it's headed.</p>
+      </div>
+      <a class="btn btn-primary" href="/contact/">Get in Touch</a>
+    </div>
+  </div>
+</section>

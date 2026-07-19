@@ -1,0 +1,37 @@
+hero_eyebrow: "A family in Leyton, London · Since 2002"
+hero_headline: "Restoring families.<br>Changing lives."
+hero_subhead: "Gomer Faith Ministries believes God's Word can heal what's broken and build what's next. Come as you are, this Sunday."
+hero_image: "/images/hero-worship.jpg"
+hero_caption: "\"Restoring families, one Sunday at a time.\""
+
+welcome_eyebrow: "You're welcome here"
+welcome_headline: "Whatever brought you here today, come as you are."
+welcome_text: "Pastor Michael and Elder Pauline Lewis started Gomer in 2002 with one conviction: that God restores what life breaks. Twenty years later, that's still what we're about. We'd love to meet you this Sunday."
+welcome_image: "/images/pastor-michael-elder-pauline.jpg"
+welcome_caption: "Pastor Michael & Elder Pauline Lewis"
+
+mission_points:
+  - label: "Disciple"
+    text: "We build lives on the Word of God, not just Sunday attendance."
+  - label: "Worship"
+    text: "We worship a God who heals the broken and strengthens the weak."
+  - label: "Restore"
+    text: "We're building a church where families get whole again."
+  - label: "Follow"
+    text: "We follow God's Word and His Spirit in everything we do."
+
+sermon_headline: "Can't join us in person? Start here."
+sermon_text: "Watch our most recent Sunday message, or browse the full archive by topic and speaker."
+
+pastor_headline: "Led by people who show up."
+pastor_text: "Pastor Michael Lewis and Elder Pauline Lewis have led Gomer since founding it in 2002, believing that a church is only as strong as the families inside it."
+pastor_image: "/images/pastor-michael-elder-pauline.jpg"
+
+outreach_headline: "Faith with our sleeves rolled up."
+outreach_text: "For over twenty years Gomer has taken a hands-on approach to the community around Leyton, showing up for families, not just preaching to them."
+outreach_image: "/images/community-outreach.jpg"
+
+verse_text: "\"You shall raise up the foundations of many generations, and you shall be called the repairer of the breach, the restorer of streets to dwell in.\""
+verse_reference: "Isaiah 58:12"
+
+newsletter_headline: "Get service updates and encouragement in your inbox."

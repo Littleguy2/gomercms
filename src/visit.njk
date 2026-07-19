@@ -1,0 +1,80 @@
+---
+layout: base.njk
+title: "Visit Us"
+description: "Planning your first visit to Gomer Faith Ministries in Leyton, London? Here's our service time, address, what to expect, and answers to common questions."
+nav: visit
+permalink: /visit/
+---
+<section class="hero" style="padding-bottom:60px;">
+  <div class="container">
+    <span class="eyebrow">{{ visit.hero_eyebrow }}</span>
+    <h1>{{ visit.hero_headline }}</h1>
+    <p class="lead" style="max-width:60ch;">{{ visit.hero_text }}</p>
+    <div class="info-strip">
+      <div class="info-item"><span class="label">When</span>{{ settings.service_time }}</div>
+      <div class="info-item"><span class="label">Where</span>{{ settings.address_line1 }}, {{ settings.address_line2 }}</div>
+      <div class="info-item"><span class="label">Kids</span>{{ settings.kids_note }}</div>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="#map">Get Directions</a>
+      <a class="btn btn-secondary" href="/watch/">Watch a Service First</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container two-col">
+    <div class="reveal">
+      <span class="eyebrow">What to expect</span>
+      <h2>Walking in for the first time</h2>
+      <p class="lead">{{ visit.expect_text }}</p>
+    </div>
+    <div class="stack reveal">
+      <div class="info-item"><span class="label">Parking &amp; transport</span>Leyton is well served by the Central line and local bus routes. Limited street parking is available nearby.</div>
+      <div class="info-item"><span class="label">Kids' check-in</span>Children ages 4–13 are warmly welcomed into Sunday School from 11:00am, run in line with Child Protection Advisory Service guidance.</div>
+      <div class="info-item"><span class="label">Length of service</span>Around 90 minutes, including worship, prayer, and the message.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dim" id="map">
+  <div class="container">
+    <div class="center reveal" style="max-width:640px;margin:0 auto 32px;">
+      <span class="eyebrow">Find us</span>
+      <h2>Destiny House, Leyton</h2>
+    </div>
+    <div class="hero-art reveal" style="aspect-ratio:21/9;">
+      <iframe class="hero-map" src="{{ settings.map_embed_url }}" title="Map showing {{ settings.site_name }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="hero-art-caption">{{ settings.address_line2 }}</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faqs">
+  <div class="container" style="max-width:800px;">
+    <div class="center reveal" style="margin-bottom:32px;">
+      <span class="eyebrow">Common questions</span>
+      <h2>FAQs for first-time visitors</h2>
+    </div>
+    <div class="reveal">
+      {% for faq in visit.faqs %}
+      <details class="accordion-item" {% if loop.first %}open{% endif %}>
+        <summary>{{ faq.question }}</summary>
+        <p>{{ faq.answer }}</p>
+      </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--dim">
+  <div class="container">
+    <div class="next-step reveal">
+      <div>
+        <h2>See you Sunday.</h2>
+        <p>{{ settings.service_time }}, {{ settings.address_line2 }}.</p>
+      </div>
+      <a class="btn btn-primary" href="/contact/">Ask a Question</a>
+    </div>
+  </div>
+</section>

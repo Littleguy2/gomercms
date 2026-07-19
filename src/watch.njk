@@ -1,0 +1,68 @@
+---
+layout: base.njk
+title: "Watch & Sermons"
+description: "Watch Gomer Faith Ministries live on Sunday or browse our sermon archive by topic and speaker."
+nav: watch
+permalink: /watch/
+---
+<section class="hero" style="padding-bottom:60px;">
+  <div class="container hero-grid">
+    <div>
+      <span class="badge-live">Live Sunday · {{ settings.service_time }}</span>
+      <h1 style="margin-top:18px;">{{ watch.hero_headline }}</h1>
+      <p class="lead">{{ watch.hero_text }}</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="#archive">Browse Archive</a>
+        <a class="btn btn-secondary" href="/visit/">Plan an In-Person Visit</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      {% if watch.live_stream_embed_url %}
+      <iframe class="hero-map" src="{{ watch.live_stream_embed_url }}" title="Live stream" loading="lazy" allowfullscreen></iframe>
+      {% endif %}
+      <div class="hero-art-caption">Live stream begins {{ settings.service_time }}</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="archive">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:8px;">
+      <span class="eyebrow">Sermon archive</span>
+      <h2>Catch up on a message</h2>
+    </div>
+    <div class="tag-filter reveal" role="group" aria-label="Filter sermons by topic">
+      <button class="is-active" data-tag="all">All</button>
+      <button data-tag="restoration">Restoration</button>
+      <button data-tag="family">Family</button>
+      <button data-tag="faith">Faith</button>
+      <button data-tag="prayer">Prayer</button>
+    </div>
+    <div class="grid grid-3 reveal">
+      {% for sermon in collections.sermons %}
+      <article class="card" data-tags="{{ sermon.data.tags | join(',') }}">
+        <div class="card-art"><img src="{{ sermon.data.image }}" alt="{{ sermon.data.title }}" loading="lazy"></div>
+        <div class="card-body">
+          <span class="card-tag">{{ sermon.data.speaker }}</span>
+          <h3>{{ sermon.data.title }}</h3>
+          <p class="card-meta">{{ sermon.data.scripture }} · {{ sermon.data.duration }}</p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--dim">
+  <div class="container two-col">
+    <div class="reveal">
+      <span class="eyebrow">Also on air</span>
+      <h2>{{ watch.radio_headline }}</h2>
+      <p class="lead">{{ watch.radio_text }}</p>
+    </div>
+    <div class="hero-art reveal" style="aspect-ratio:4/3;">
+      <img class="hero-photo" src="{{ watch.radio_image }}" alt="Gomer radio broadcast">
+      <div class="hero-art-caption">Weekly radio broadcast</div>
+    </div>
+  </div>
+</section>

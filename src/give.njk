@@ -1,0 +1,70 @@
+---
+layout: base.njk
+title: "Give"
+description: "Give online to Gomer Faith Ministries. Every gift helps keep our doors open, our programmes running, and our community growing."
+nav: give
+permalink: /give/
+---
+<section class="hero" style="padding-bottom:60px;">
+  <div class="container center" style="max-width:680px;margin:0 auto;">
+    <span class="eyebrow">Give</span>
+    <h1>{{ give.hero_headline }}</h1>
+    <p class="lead">{{ give.hero_text }}</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container" style="max-width:640px;">
+    <div class="card reveal" style="padding:40px;">
+      <div class="tag-filter" role="group" aria-label="Choose a giving frequency" style="margin-top:0;">
+        <button class="is-active" data-give-toggle="once" aria-pressed="true">One time</button>
+        <button data-give-toggle="recurring" aria-pressed="false">Monthly</button>
+      </div>
+      <p class="form-hint" style="margin:14px 0 22px;">You're giving <strong><span data-give-frequency-label>one time</span></strong>. Choose an amount below or enter your own.</p>
+      <div class="grid grid-3" style="gap:12px;margin-bottom:20px;">
+        {% for amount in give.suggested_amounts %}
+        <button class="btn btn-secondary" type="button">£{{ amount }}</button>
+        {% endfor %}
+      </div>
+      <form class="form" data-demo-form data-confirm-target="#give-confirm">
+        <div class="form-field">
+          <label for="give-amount">Amount (£)</label>
+          <input id="give-amount" name="amount" type="number" min="1" step="1" required placeholder="Enter an amount">
+        </div>
+        <div class="form-field">
+          <label for="give-name">Full name</label>
+          <input id="give-name" name="name" type="text" required autocomplete="name">
+        </div>
+        <div class="form-field">
+          <label for="give-email">Email</label>
+          <input id="give-email" name="email" type="email" required autocomplete="email">
+        </div>
+        <button class="btn btn-primary btn-block" type="submit">Continue to Secure Checkout</button>
+        <p class="form-hint">You'll be taken to our secure giving partner to complete your gift. Receipts are emailed automatically for your records.</p>
+      </form>
+    </div>
+    <div id="give-confirm" class="confirm" style="margin-top:24px;">
+      <h3>Thank you for giving.</h3>
+      <p>In a live build, this step hands off to our secure payment processor to complete the gift. A receipt will follow by email.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dim">
+  <div class="container two-col">
+    <div class="reveal">
+      <span class="eyebrow">Other ways to give</span>
+      <h2>However works for you</h2>
+      <div class="stack" style="margin-top:20px;">
+        <div class="info-item"><span class="label">In person</span>Give during the offering at Sunday service.</div>
+        <div class="info-item"><span class="label">Bank transfer</span>Contact us for our bank details to set up a standing order.</div>
+        <div class="info-item"><span class="label">Questions</span>Reach out any time through our <a href="/contact/">contact page</a>.</div>
+      </div>
+    </div>
+    <div class="verse reveal" style="margin:0;">
+      <div class="rule"></div>
+      <blockquote>{{ give.verse_text }}</blockquote>
+      <cite>{{ give.verse_reference }}</cite>
+    </div>
+  </div>
+</section>

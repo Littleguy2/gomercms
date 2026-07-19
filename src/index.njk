@@ -1,0 +1,227 @@
+---
+layout: base.njk
+title: "Home"
+description: "Gomer Faith Ministries is a family church in Leyton, London, restoring families and changing lives since 2002. Join us this Sunday, watch a sermon, or request prayer."
+nav: home
+permalink: /
+---
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="reveal is-visible">
+      <span class="eyebrow">{{ homepage.hero_eyebrow }}</span>
+      <h1>{{ homepage.hero_headline | safe }}</h1>
+      <p class="lead">{{ homepage.hero_subhead }}</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="/visit/">Plan Your Visit</a>
+        <a class="btn btn-secondary" href="/watch/">Watch a Sermon</a>
+      </div>
+      <div class="info-strip" style="margin-top:40px;">
+        <div class="info-item"><span class="label">Sundays</span>{{ settings.service_time }}</div>
+        <div class="info-item"><span class="label">Where</span>{{ settings.address_line2 }}</div>
+        <div class="info-item"><span class="label">Everyone</span>{{ settings.kids_note }}</div>
+      </div>
+    </div>
+    <div class="hero-art reveal is-visible">
+      <img class="hero-photo" src="{{ homepage.hero_image }}" alt="The Gomer congregation worshipping together">
+      <div class="hero-art-caption">{{ homepage.hero_caption }}</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container two-col">
+    <div class="reveal">
+      <span class="eyebrow">{{ homepage.welcome_eyebrow }}</span>
+      <h2>{{ homepage.welcome_headline }}</h2>
+      <p class="lead">{{ homepage.welcome_text }}</p>
+      <a class="btn btn-ghost" href="/about/">Read our story →</a>
+    </div>
+    <div class="hero-art reveal" style="aspect-ratio:4/3;">
+      <img class="hero-photo" src="{{ homepage.welcome_image }}" alt="{{ homepage.welcome_caption }}">
+      <div class="hero-art-caption">{{ homepage.welcome_caption }}</div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dim">
+  <div class="container">
+    <div class="center reveal" style="max-width:680px;margin:0 auto 48px;">
+      <span class="eyebrow">Our mission</span>
+      <h2>Why we're here</h2>
+    </div>
+    <div class="grid grid-4 reveal">
+      {% for point in homepage.mission_points %}
+      <div class="info-item"><span class="label">{{ point.label }}</span>{{ point.text }}</div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:36px;">
+      <div>
+        <span class="eyebrow">This week at Gomer</span>
+        <h2>Upcoming services &amp; events</h2>
+      </div>
+      <a class="btn btn-secondary" href="/ministries/">See all events</a>
+    </div>
+    <div class="grid grid-3 reveal">
+      {% for event in collections.events %}
+      <div class="card">
+        <div class="card-art"><img src="{{ event.data.image }}" alt="{{ event.data.title }}" loading="lazy"></div>
+        <div class="card-body">
+          <span class="card-tag">{{ event.data.tag }}</span>
+          <h3>{{ event.data.title }}</h3>
+          <p class="card-meta">{{ event.data.meta }}</p>
+          <p>{{ event.templateContent | safe }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--ink">
+  <div class="container two-col">
+    <div class="reveal">
+      <span class="badge-live">Latest message</span>
+      <h2 style="margin-top:18px;">{{ homepage.sermon_headline }}</h2>
+      <p class="lead">{{ homepage.sermon_text }}</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="/watch/">Watch Now</a>
+        <a class="btn btn-secondary" href="/watch/">Browse Archive</a>
+      </div>
+    </div>
+    <div class="hero-art" style="aspect-ratio:16/10;">
+      {% if collections.sermons.length %}
+      <img class="hero-photo" src="{{ collections.sermons[0].data.image }}" alt="{{ collections.sermons[0].data.title }}">
+      <div class="hero-art-caption">{{ collections.sermons[0].data.title }} · {{ collections.sermons[0].data.duration }}</div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container two-col">
+    <div class="hero-art reveal" style="aspect-ratio:4/5;">
+      <img class="hero-photo" src="{{ homepage.pastor_image }}" alt="Pastor Michael Lewis">
+      <div class="hero-art-caption">Pastor Michael Lewis</div>
+    </div>
+    <div class="reveal">
+      <span class="eyebrow">Meet the pastor</span>
+      <h2>{{ homepage.pastor_headline }}</h2>
+      <p class="lead">{{ homepage.pastor_text }}</p>
+      <a class="btn btn-ghost" href="/about/">Meet our leaders →</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dim">
+  <div class="container">
+    <div class="center reveal" style="max-width:680px;margin:0 auto 48px;">
+      <span class="eyebrow">There's a place for you</span>
+      <h2>Find your people</h2>
+    </div>
+    <div class="grid grid-4 reveal">
+      {% for m in collections.ministries %}
+      {% if m.data.homepage_feature %}
+      <a class="card" href="/ministries/" style="text-decoration:none;">
+        <div class="card-art"><img src="{{ m.data.image }}" alt="{{ m.data.title }}" loading="lazy"></div>
+        <div class="card-body"><h3>{{ m.data.title }}</h3></div>
+      </a>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container two-col">
+    <div class="reveal">
+      <span class="eyebrow">In the community</span>
+      <h2>{{ homepage.outreach_headline }}</h2>
+      <p class="lead">{{ homepage.outreach_text }}</p>
+      <a class="btn btn-ghost" href="/ministries/">See how we serve →</a>
+    </div>
+    <div class="hero-art reveal" style="aspect-ratio:4/3;">
+      <img class="hero-photo" src="{{ homepage.outreach_image }}" alt="Gomer community outreach">
+      <div class="hero-art-caption">Community outreach, Leyton</div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dim">
+  <div class="container">
+    <div class="center reveal" style="max-width:680px;margin:0 auto 48px;">
+      <span class="eyebrow">In their words</span>
+      <h2>Real people, real restoration</h2>
+    </div>
+    <div class="grid grid-3 reveal">
+      {% for t in collections.testimonials %}
+      <div class="testimonial">
+        <p>"{{ t.data.quote }}"</p>
+        <span class="who">— {{ t.data.attribution }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="verse reveal">
+      <div class="rule"></div>
+      <blockquote>{{ homepage.verse_text }}</blockquote>
+      <cite>{{ homepage.verse_reference }}</cite>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dim">
+  <div class="container grid grid-2 reveal">
+    <div class="card" style="padding:36px;">
+      <span class="eyebrow">Prayer requests</span>
+      <h3 style="font-size:1.6rem;">Bring it to us. Whatever it is.</h3>
+      <p>Our prayer team believes God still hears and still answers. Tell us what you're carrying, and we'll carry it with you.</p>
+      <a class="btn btn-primary" href="/prayer/">Request Prayer</a>
+    </div>
+    <div class="card" style="padding:36px;">
+      <span class="eyebrow">Give</span>
+      <h3 style="font-size:1.6rem;">Give as an act of worship.</h3>
+      <p>Every gift helps us keep our doors open, our programmes running, and our family growing. Thank you for sowing with us.</p>
+      <a class="btn btn-primary" href="/give/">Give Now</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="newsletter">
+  <div class="container center" style="max-width:560px;">
+    <span class="eyebrow">Stay close</span>
+    <h2>{{ homepage.newsletter_headline }}</h2>
+    <form class="form" data-demo-form data-confirm-target="#newsletter-confirm" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:24px;">
+      <label for="newsletter-email" class="visually-hidden">Email address</label>
+      <input id="newsletter-email" name="email" type="email" required placeholder="you@example.com" style="flex:1;min-width:220px;padding:14px 16px;border-radius:999px;border:1.5px solid var(--paper-line);">
+      <button class="btn btn-primary" type="submit">Subscribe</button>
+    </form>
+    <div id="newsletter-confirm" class="confirm" style="margin-top:20px;">
+      <h3>You're on the list.</h3>
+      <p>Watch your inbox for what God is doing at Gomer.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dim">
+  <div class="container two-col">
+    <div class="reveal">
+      <span class="eyebrow">Find us</span>
+      <h2>{{ settings.address_line2 }}</h2>
+      <p class="lead">Leyton is well served by the Underground (Central line) and local bus routes. Join us {{ settings.service_time }}.</p>
+      <a class="btn btn-secondary" href="/visit/">Plan your visit →</a>
+    </div>
+    <div class="hero-art reveal" style="aspect-ratio:4/3;">
+      <iframe class="hero-map" src="{{ settings.map_embed_url }}" title="Map showing {{ settings.site_name }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="hero-art-caption">Map · Destiny House, Leyton</div>
+    </div>
+  </div>
+</section>

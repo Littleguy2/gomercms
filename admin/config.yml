@@ -1,0 +1,249 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Where uploaded images get saved, and how the site links to them
+media_folder: "src/images"
+public_folder: "/images"
+
+site_url: https://gomerfaithministries.org
+display_url: https://gomerfaithministries.org
+logo_url: /images/gomer-logo.png
+
+locale: "en"
+
+collections:
+
+  # ---------- SITE-WIDE SETTINGS ----------
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "General Settings"
+        name: "general"
+        file: "content/data/settings.yaml"
+        fields:
+          - { label: "Church Name", name: "site_name", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Logo", name: "logo", widget: "image" }
+          - { label: "Address — Line 1", name: "address_line1", widget: "string" }
+          - { label: "Address — Line 2", name: "address_line2", widget: "string" }
+          - { label: "Sunday Service Time", name: "service_time", widget: "string" }
+          - { label: "Kids Ministry Note", name: "kids_note", widget: "string" }
+          - { label: "Phone", name: "phone", widget: "string", required: false }
+          - { label: "Email", name: "email", widget: "string", required: false }
+          - { label: "Google Maps Embed URL", name: "map_embed_url", widget: "string", hint: "Search the address on Google Maps, click Share > Embed a map, and paste the src URL here." }
+          - { label: "Facebook URL", name: "facebook_url", widget: "string", required: false }
+          - { label: "Instagram URL", name: "instagram_url", widget: "string", required: false }
+          - { label: "YouTube URL", name: "youtube_url", widget: "string", required: false }
+          - { label: "Footer Copyright Text", name: "copyright_note", widget: "string" }
+
+  # ---------- HOMEPAGE ----------
+  - name: "homepage"
+    label: "Homepage"
+    files:
+      - label: "Homepage Content"
+        name: "homepage"
+        file: "content/data/homepage.yaml"
+        fields:
+          - label: "Hero Section"
+            name: "hero_group"
+            widget: "object"
+            collapsed: false
+            fields:
+              - { label: "Eyebrow Text", name: "hero_eyebrow", widget: "string" }
+              - { label: "Headline (use <br> for a line break)", name: "hero_headline", widget: "string" }
+              - { label: "Subheading", name: "hero_subhead", widget: "text" }
+              - { label: "Hero Image", name: "hero_image", widget: "image" }
+              - { label: "Image Caption", name: "hero_caption", widget: "string" }
+          - label: "Welcome Section"
+            name: "welcome_group"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow Text", name: "welcome_eyebrow", widget: "string" }
+              - { label: "Headline", name: "welcome_headline", widget: "string" }
+              - { label: "Body Text", name: "welcome_text", widget: "text" }
+              - { label: "Image", name: "welcome_image", widget: "image" }
+              - { label: "Image Caption", name: "welcome_caption", widget: "string" }
+          - label: "Mission Points"
+            name: "mission_points"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+          - label: "Latest Sermon Banner"
+            name: "sermon_group"
+            widget: "object"
+            fields:
+              - { label: "Headline", name: "sermon_headline", widget: "string" }
+              - { label: "Text", name: "sermon_text", widget: "text" }
+          - label: "Meet the Pastor Section"
+            name: "pastor_group"
+            widget: "object"
+            fields:
+              - { label: "Headline", name: "pastor_headline", widget: "string" }
+              - { label: "Text", name: "pastor_text", widget: "text" }
+              - { label: "Image", name: "pastor_image", widget: "image" }
+          - label: "Community Outreach Section"
+            name: "outreach_group"
+            widget: "object"
+            fields:
+              - { label: "Headline", name: "outreach_headline", widget: "string" }
+              - { label: "Text", name: "outreach_text", widget: "text" }
+              - { label: "Image", name: "outreach_image", widget: "image" }
+          - label: "Scripture Callout"
+            name: "verse_group"
+            widget: "object"
+            fields:
+              - { label: "Verse Text", name: "verse_text", widget: "text" }
+              - { label: "Reference", name: "verse_reference", widget: "string" }
+          - { label: "Newsletter Headline", name: "newsletter_headline", widget: "string" }
+
+  # ---------- OTHER PAGES (one file each) ----------
+  - name: "visit_page"
+    label: "Visit Us Page"
+    files:
+      - label: "Visit Us Content"
+        name: "visit"
+        file: "content/data/visit.yaml"
+        fields:
+          - { label: "Eyebrow", name: "hero_eyebrow", widget: "string" }
+          - { label: "Headline", name: "hero_headline", widget: "string" }
+          - { label: "Subheading", name: "hero_text", widget: "text" }
+          - { label: "\"What to Expect\" Text", name: "expect_text", widget: "text" }
+          - label: "FAQs"
+            name: "faqs"
+            widget: "list"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }
+
+  - name: "watch_page"
+    label: "Watch & Sermons Page"
+    files:
+      - label: "Watch Page Content"
+        name: "watch"
+        file: "content/data/watch.yaml"
+        fields:
+          - { label: "Headline", name: "hero_headline", widget: "string" }
+          - { label: "Subheading", name: "hero_text", widget: "text" }
+          - { label: "Live Stream Embed URL", name: "live_stream_embed_url", widget: "string", required: false, hint: "Paste a YouTube/Vimeo embed URL once live streaming is set up." }
+          - { label: "Radio Section Headline", name: "radio_headline", widget: "string" }
+          - { label: "Radio Section Text", name: "radio_text", widget: "text" }
+          - { label: "Radio Image", name: "radio_image", widget: "image" }
+
+  - name: "give_page"
+    label: "Give Page"
+    files:
+      - label: "Give Page Content"
+        name: "give"
+        file: "content/data/give.yaml"
+        fields:
+          - { label: "Headline", name: "hero_headline", widget: "string" }
+          - { label: "Subheading", name: "hero_text", widget: "text" }
+          - { label: "Verse Text", name: "verse_text", widget: "text" }
+          - { label: "Verse Reference", name: "verse_reference", widget: "string" }
+          - { label: "Suggested Amounts (£)", name: "suggested_amounts", widget: "list", field: { label: "Amount", name: "amount", widget: "number" } }
+
+  - name: "prayer_page"
+    label: "Prayer Request Page"
+    files:
+      - label: "Prayer Page Content"
+        name: "prayer"
+        file: "content/data/prayer.yaml"
+        fields:
+          - { label: "Headline", name: "hero_headline", widget: "string" }
+          - { label: "Subheading", name: "hero_text", widget: "text" }
+          - { label: "Verse Text", name: "verse_text", widget: "text" }
+          - { label: "Verse Reference", name: "verse_reference", widget: "string" }
+
+  - name: "about_page"
+    label: "About Page"
+    files:
+      - label: "About Page Content"
+        name: "about"
+        file: "content/data/about.yaml"
+        fields:
+          - { label: "Headline", name: "hero_headline", widget: "string" }
+          - { label: "Subheading", name: "hero_text", widget: "text" }
+          - { label: "Vision Headline", name: "vision_headline", widget: "string" }
+          - { label: "Vision Text", name: "vision_text", widget: "text" }
+          - { label: "Safeguarding Headline", name: "safeguarding_headline", widget: "string" }
+          - { label: "Safeguarding Text", name: "safeguarding_text", widget: "text" }
+
+  - name: "contact_page"
+    label: "Contact Page"
+    files:
+      - label: "Contact Page Content"
+        name: "contact"
+        file: "content/data/contact.yaml"
+        fields:
+          - { label: "Headline", name: "hero_headline", widget: "string" }
+          - { label: "Subheading", name: "hero_text", widget: "text" }
+
+  # ---------- REPEATING CONTENT (folders — add/remove entries freely) ----------
+  - name: "ministries"
+    label: "Ministries"
+    folder: "content/ministries"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "title", widget: "string" }
+      - { label: "Schedule / Tag (e.g. 'Weekly', 'Sundays 11am')", name: "tag", widget: "string" }
+      - { label: "Photo", name: "image", widget: "image" }
+      - { label: "Display Order", name: "order", widget: "number", default: 10 }
+      - { label: "Feature on Homepage?", name: "homepage_feature", widget: "boolean", default: false, required: false }
+      - { label: "Description", name: "body", widget: "markdown" }
+
+  - name: "events"
+    label: "Upcoming Events"
+    folder: "content/events"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Event Name", name: "title", widget: "string" }
+      - { label: "Frequency Tag (e.g. 'Every Sunday')", name: "tag", widget: "string" }
+      - { label: "Time / Meta line", name: "meta", widget: "string" }
+      - { label: "Photo", name: "image", widget: "image" }
+      - { label: "Display Order", name: "order", widget: "number", default: 10 }
+      - { label: "Description", name: "body", widget: "markdown" }
+
+  - name: "sermons"
+    label: "Sermons"
+    folder: "content/sermons"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Speaker", name: "speaker", widget: "string" }
+      - { label: "Scripture Reference", name: "scripture", widget: "string" }
+      - { label: "Duration (e.g. '41 min')", name: "duration", widget: "string" }
+      - label: "Topic Tags"
+        name: "tags"
+        widget: "select"
+        multiple: true
+        options: ["restoration", "family", "faith", "prayer"]
+      - { label: "Thumbnail Image", name: "image", widget: "image" }
+      - { label: "Date Preached", name: "date", widget: "datetime" }
+      - { label: "Video URL", name: "video_url", widget: "string", required: false, hint: "YouTube/Vimeo link, once the sermon is recorded." }
+
+  - name: "testimonials"
+    label: "Testimonials"
+    folder: "content/testimonials"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Quote", name: "quote", widget: "text" }
+      - { label: "Attribution (e.g. 'A member since 2019')", name: "attribution", widget: "string" }
+      - { label: "Display Order", name: "order", widget: "number", default: 10 }
+
+  - name: "leaders"
+    label: "Leadership"
+    folder: "content/leaders"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Role", name: "role", widget: "string", required: false }
+      - { label: "Photo", name: "image", widget: "image" }
+      - { label: "Display Order", name: "order", widget: "number", default: 10 }
+      - { label: "Bio", name: "body", widget: "markdown" }

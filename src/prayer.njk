@@ -1,0 +1,52 @@
+---
+layout: base.njk
+title: "Prayer Request"
+description: "Submit a confidential prayer request to the Gomer Faith Ministries prayer team. Whatever you're carrying, we'll carry it with you."
+nav: prayer
+permalink: /prayer/
+---
+<section class="hero" style="padding-bottom:60px;">
+  <div class="container two-col">
+    <div>
+      <span class="eyebrow">Prayer requests</span>
+      <h1>{{ prayer.hero_headline }}</h1>
+      <p class="lead">{{ prayer.hero_text }}</p>
+    </div>
+    <div class="verse" style="margin:0;">
+      <div class="rule"></div>
+      <blockquote>{{ prayer.verse_text }}</blockquote>
+      <cite>{{ prayer.verse_reference }}</cite>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container" style="max-width:640px;">
+    <form class="form reveal" data-demo-form data-confirm-target="#prayer-confirm">
+      <div class="form-field">
+        <label for="prayer-name">Your name</label>
+        <input id="prayer-name" name="name" type="text" required autocomplete="name">
+      </div>
+      <div class="form-field">
+        <label for="prayer-contact">Email or phone number</label>
+        <input id="prayer-contact" name="contact" type="text" required>
+        <p class="form-hint">Only used if you'd like someone from our prayer team to follow up personally.</p>
+      </div>
+      <div class="form-field">
+        <label for="prayer-request">Your prayer request</label>
+        <textarea id="prayer-request" name="request" required placeholder="Share as much or as little as you're comfortable with."></textarea>
+      </div>
+      <div class="form-field checkbox-field">
+        <input id="prayer-confidential" name="confidential" type="checkbox">
+        <label for="prayer-confidential" style="font-weight:500;">Please keep this request confidential, shared only with our prayer team.</label>
+      </div>
+      <button class="btn btn-primary btn-block" type="submit">Submit Prayer Request</button>
+      <p class="form-hint" style="margin-top:14px;">Requests are reviewed by our pastoral team and prayed over within the week. If you're in crisis right now, please also reach out to a trusted local emergency or crisis service.</p>
+    </form>
+    <div id="prayer-confirm" class="confirm">
+      <h3>We've received your request.</h3>
+      <p>Our prayer team is standing with you. If you asked for a follow-up, someone will reach out soon.</p>
+      <a class="btn btn-secondary" href="/" style="margin-top:16px;">Back to Home</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,64 @@
+---
+layout: base.njk
+title: "Contact"
+description: "Get in touch with Gomer Faith Ministries in Leyton, London. We'd love to hear from you."
+nav: contact
+permalink: /contact/
+---
+<section class="hero" style="padding-bottom:60px;">
+  <div class="container">
+    <span class="eyebrow">Get in touch</span>
+    <h1>{{ contact.hero_headline }}</h1>
+    <p class="lead" style="max-width:60ch;">{{ contact.hero_text }}</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container two-col">
+    <form class="form reveal" data-demo-form data-confirm-target="#contact-confirm">
+      <div class="form-field">
+        <label for="contact-name">Full name</label>
+        <input id="contact-name" name="name" type="text" required autocomplete="name">
+      </div>
+      <div class="form-field">
+        <label for="contact-email">Email</label>
+        <input id="contact-email" name="email" type="email" required autocomplete="email">
+      </div>
+      <div class="form-field">
+        <label for="contact-topic">What's this about?</label>
+        <select id="contact-topic" name="topic">
+          <option>Planning a visit</option>
+          <option>Joining a ministry</option>
+          <option>Volunteering</option>
+          <option>Safeguarding</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" name="message" required></textarea>
+      </div>
+      <button class="btn btn-primary btn-block" type="submit">Send Message</button>
+    </form>
+    <div class="reveal">
+      <div id="contact-confirm" class="confirm" style="margin-bottom:24px;">
+        <h3>Message sent.</h3>
+        <p>Thank you for reaching out. Someone from our team will be in touch soon.</p>
+      </div>
+      <div class="stack">
+        <div class="info-item"><span class="label">Address</span>{{ settings.address_line1 }}, {{ settings.address_line2 }}</div>
+        <div class="info-item"><span class="label">Sunday service</span>{{ settings.service_time }}</div>
+        <div class="info-item"><span class="label">Safeguarding</span>To raise a safeguarding concern directly, select "Safeguarding" in the form or ask for our safeguarding lead on Sunday.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dim">
+  <div class="container">
+    <div class="hero-art reveal" style="aspect-ratio:21/9;">
+      <iframe class="hero-map" src="{{ settings.map_embed_url }}" title="Map showing {{ settings.site_name }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="hero-art-caption">{{ settings.address_line2 }}</div>
+    </div>
+  </div>
+</section>
